@@ -49,11 +49,10 @@ public class MainActivity extends AppCompatActivity {
         phrases.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                Intent phrasesIntent = new Intent(MainActivity.this,PhrasesActivity.class);
                 startActivity(phrasesIntent);
             }
         });
-
     }
 }
 

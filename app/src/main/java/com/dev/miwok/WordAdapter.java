@@ -11,13 +11,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<word> {
 
-    public WordAdapter(Activity context, ArrayList<word> words){
+    //resource id to store colour adapter
+    private int mColorResoureId;
+
+    public WordAdapter(Activity context, ArrayList<word> words, int mColorResoureId){
         super(context,0,words);
+        this.mColorResoureId = mColorResoureId;
     }
 
     @NonNull
@@ -52,6 +57,10 @@ public class WordAdapter extends ArrayAdapter<word> {
         } else {
             imageView.setVisibility(View.GONE);
         }
+
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        int color = ContextCompat.getColor(getContext(),mColorResoureId);
+        textContainer.setBackgroundColor(color);
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

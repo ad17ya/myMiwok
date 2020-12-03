@@ -2,6 +2,7 @@ package com.dev.miwok;
 
 import android.app.Activity;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,18 +40,18 @@ public class WordAdapter extends ArrayAdapter<word> {
         word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
-        TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_text_view);
+        TextView miwokTextView = listItemView.findViewById(R.id.miwok_text_view);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
         miwokTextView.setText(currentWord.getMiwokTranslation());
 
         // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
+        TextView defaultTextView = listItemView.findViewById(R.id.default_text_view);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
-        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_view);
+        ImageView imageView =  listItemView.findViewById(R.id.image_view);
         if(currentWord.hasImage()){
             imageView.setImageResource(currentWord.getmImageResourceID());
             imageView.setVisibility(View.VISIBLE);
